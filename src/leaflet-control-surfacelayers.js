@@ -116,6 +116,10 @@ L.Control.SurfaceLayers = L.Control.Layers.extend({
         holder.appendChild(input);
         holder.appendChild(name);
         var flag_spot = 'markerLayer' in obj.layer.options;
+        if (flag_spot) {
+            var separator = L.DomUtil.create('div', "leaflet-control-layers-separator");
+            holder.appendChild(separator);    
+        }
         if (obj.overlay && !flag_spot) {
             var up = L.DomUtil.create('div', 'leaflet-up');
             L.DomEvent.on(up, 'click', this._onUpClick, this);
